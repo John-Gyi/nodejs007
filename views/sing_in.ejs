@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partial/head %>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main-header">
+
+    </div>
+
+    <!-- Sidebar -->
+
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="content ">
+
+        <div class="page-inner mt--6">
+          <div class="row mt--2">
+            <div class="col-md-8">
+              <div class="card full-height bg-light">
+                <div class="card-body ">
+                  <div class="card-title">Sign In</div>
+                  <div class="card-category">Hey Guy, Please Sign In To Your Account</div>
+                  <!-- <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"> -->
+                  <form action="/singin" method="post">
+                    <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+
+                        <input type="checkbox" class="form-check-input" id="rememberMe">Remember Me
+
+
+                    </div>
+                    <div class="card-action">
+
+
+                    <button type="submit" class="btn btn-success">Sign In</button>
+                      <button type="reset" class="btn btn-danger">Cancel</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <!-- <footer class="footer"> -->
+
+    </footer>
+  </div>
+
+  <!-- Custom template | don't include it in your project! -->
+
+  <!-- End Custom template -->
+  </div>
+  <!--   Core JS Files   -->
+
+</body>
+<script type="text/javascript" src="/javascripts/jquery.js">
+
+</script>
+<script type="text/javascript" src="/javascripts/js.cookie.min.js">
+
+</script>
+<script type="text/javascript">
+  $('#rememberMe').click(function() {
+    if ($(this).prop('checked') == true) {
+      console.log('call');
+      Cookies.set('email1', $('#email').val(), {
+        expires: 7
+      });
+    } else {
+      Cookies.remove('email1');
+    }
+  });
+  if (Cookies.get('email1')) {
+    $('#email').val(Cookies.get('email1'));
+    $('#rememberMe').prop('checked', true);
+  }
+</script>
+
+</html>

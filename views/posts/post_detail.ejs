@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include ../partial/head %>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<!-- Logo Header -->
+			<% include ../partial/header %>
+			<!-- End Logo Header -->
+
+			<!-- Navbar Header -->
+			<% include ../partial/navbar %>
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Sidebar -->
+		<% include ../partial/sidebar %>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div class="content">
+
+        <div class="row">
+          <div class="col-md-2">
+
+          </div>
+          <!-- <div class="col-md-8"> -->
+            <!-- <div class="card card-profile">
+              <div class="card-header" style="background-image: url('/assets/img/blogpost.jpg')">
+                <div class="profile-picture">
+                  <div class="avatar avatar-xl">
+                    <img src="https://scontent.frgn6-1.fna.fbcdn.net/v/t1.0-9/p960x960/68968309_606575839869790_5462133600809910272_o.jpg?_nc_cat=107&_nc_ohc=AuNA7UdZiz8AX-wIjd0&_nc_ht=scontent.frgn6-1.fna&_nc_tp=1002&oh=39d856b4d405225695f1b6f0df2a88db&oe=5ED7D27C" alt="..." class="avatar-img rounded-circle">
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="user-profile text-center">
+                  <div class="name"><%=postDetail.title %></div>
+                  <div class="job"><%=postDetail.content %></div>
+                  <div class="job"><%=postDetail.author.name %></div>
+                  <div class="desc"><%=postDetail.author.email %></div>
+                  <div class="social-media">
+                    <a class="btn btn-info btn-twitter btn-sm btn-link" href="#">
+                      <span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
+                    </a>
+                    <a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+                      <span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span>
+                    </a>
+                    <a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#">
+                      <span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span>
+                    </a>
+                    <a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+                      <span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span>
+                    </a>
+                  </div>
+                  <div class="row">
+                    <div class="view-profile col-md-6">
+                      <a href="/posts/postupdate/<%=postDetail._id %>" class="btn btn-secondary btn-block">Update</a>
+                    </div>
+                    <div class="view-profile col-md-6">
+                      <a href="#" onclick="del()" class="btn btn-secondary btn-block">Delete</a>
+                    </div>
+                    <!<a href="/users/userupdate/<%=user._id %>"><button type="button" name="button">Update</button></a>
+                    <button type="button" name="button" onclick="del()">Delete</button> -->
+                  <!-- </div> -->
+
+                <!-- </div>
+              </div>
+              <div class="card-footer">
+                <div class="row user-stats text-center">
+                  <div class="col">
+                    <div class="number">125</div>
+                    <div class="title">Post</div>
+                  </div>
+                  <div class="col">
+                    <div class="number">25K</div>
+                    <div class="title">Followers</div>
+                  </div>
+                  <div class="col">
+                    <div class="number">134</div>
+                    <div class="title">Following</div>
+                  </div>
+                </div>
+              </div> --> -->
+            <!-- </div> -->
+						<div class="col-md-8">
+							<div class="card card-post card-round">
+								<img class="card-img-top" src="/assets/img/blogpost.jpg" alt="Card image cap">
+								<div class="card-body">
+									<div class="d-flex">
+										<div class="avatar">
+											<img src="/assets/img/profile2.jpg" alt="..." class="avatar-img rounded-circle">
+										</div>
+										<div class="info-post ml-2">
+											<div class="job"><%=postDetail.author.name %></div>
+		                  <div class="desc"><%=postDetail.author.email %></div>
+										</div>
+									</div>
+									<div class="separator-solid"></div>
+									<p class="card-category text-info mb-1"><a href="#">Design</a></p>
+									<h3 class="card-title">
+										<a href="#">
+										<div class="name"><%=postDetail.title %></div>
+										</a>
+									</h3>
+									<p class="card-text"><%=postDetail.content %></p>
+									<!-- <div class="row">
+                    <div class="view-profile col-md-6">
+                      <a href="/posts/postupdate/<%=postDetail._id %>" class="btn btn-secondary btn-block">Update</a>
+                    </div>
+                    <div class="view-profile col-md-6">
+                      <a href="#" onclick="del()" class="btn btn-secondary btn-block">Delete</a>
+                    </div>
+                    <! <a href="/users/userupdate/<%=user._id %>"><button type="button" name="button">Update</button></a>
+                    <button type="button" name="button" onclick="del()">Delete</button> -->
+                  <!-- </div> -->
+									 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+									<a href="/posts/postupdate/<%=postDetail._id %>" class="btn btn-primary btn-rounded btn-sm">Update</a>
+									<a href="#" onclick="del();" class="btn btn-primary btn-rounded btn-sm text-white">Delete</a>
+
+
+								</div>
+							</div>
+						</div>
+          </div>
+        </div>
+			</div>
+			<footer class="footer">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="https://www.themekita.com">
+									ThemeKita
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">
+									Help
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">
+									Licenses
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="copyright ml-auto">
+						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- Custom template | don't include it in your project! -->
+		<% include ../partial/footer %>
+		<!-- End Custom template -->
+	</div>
+	<!--   Core JS Files   -->
+	<% include ../partial/script %>
+</body>
+
+<script type="text/javascript">
+  function del(){
+    var a=confirm("Are you sure to delete");
+    if (a) {
+      location.href="/posts/postdelete/<%=postDetail._id%>";
+
+    }
+  }
+</script>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Post Details</h1>
+    Title:<%=postDetail.title %><p>
+    Content:<%=postDetail.content %><p>
+    Author Name:<%=postDetail.author.name %><p>
+      Author Email:<%=postDetail.author.email %><p>
+<a href="/posts/postupdate/<%=postDetail._id %>"><button type="button" name="button">Update</button></a>
+    <button type="button" name="button" onclick="del()">Delete</button>
+  </body>
+  <script type="text/javascript">
+    function del(){
+      var a=confirm("Are you sure to delete");
+      if (a) {
+        location.href="/posts/postdelete/<%=postDetail._id%>";
+
+      }
+    }
+  </script>
+</html> -->

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partial/head %>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main-header">
+      <% include ../partial/header %>
+			<!-- End Logo Header -->
+
+			<!-- Navbar Header -->
+			<% include ../partial/navbar %>
+    </div>
+
+    <!-- Sidebar -->
+	<% include ../partial/sidebar %>
+    <!-- End Sidebar -->
+
+    <div class="main-panel">
+      <div class="content ">
+
+        <div class="page-inner mt--6">
+          <div class="row mt--2">
+            <div class="col-md-8">
+              <div class="card full-height bg-light">
+                <div class="card-body ">
+                  <div class="card-title">User Add</div>
+                  <div class="card-category">Hey Guy, Please Add  Your Account</div>
+                  <!-- <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"> -->
+                  <form action="/users/user_add" method="post" id="myform">
+                    <div class="form-group">
+                      <label for="name">UserName:</label>
+                      <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter name">
+                      <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+
+
+
+                </div>
+                <div class="card-action">
+
+
+                  <button type="submit" class="btn btn-success">Submit</button>
+                  <!-- <button type="reset" class="btn btn-danger">Cancel</button> -->
+                </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+  <!-- <footer class="footer"> -->
+
+  <!-- </footer> -->
+  </div>
+
+  <!-- Custom template | don't include it in your project! -->
+	<% include ../partial/footer %>
+  <!-- End Custom template -->
+  </div>
+  <!--   Core JS Files   -->
+<% include ../partial/script %>
+</body>
+
+<script type="text/javascript" src="/javascripts/jquery.js">
+
+</script>
+<script type="text/javascript" src="/javascripts/jquery.validate.min.js">
+
+</script>
+<script type="text/javascript">
+  $('#email').blur(function() {
+    var data = {
+      email1: $('#email').val()
+    };
+    if (data.email1 != '') {
+      $.ajax({
+        url: '/users/duemail',
+        data: data,
+        type: 'POST',
+        success: function(result) {
+          if (result.status) {
+            alert('duplicate email');
+            $('#email').val(' ');
+            $('#email').focus();
+          }
+        }
+
+      })
+    }
+  })
+
+  $('#myform').validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3,
+        maxlength: 20
+      },
+      email: {
+        required: true,
+        emailExt: true
+      },
+      password: {
+        required: true,
+        minlength: 6,
+        maxlength: 20,
+        pwcheck:true
+      }
+    },
+    messages: {
+      name: {
+        required: 'User name is required'
+        // minlength:'Please enter atleast 3 characters',
+        // maxlength:'Don't enter more than 20 '
+      },
+      email: {
+        required: 'User email is required'
+
+      },
+      password: {
+        required: 'User password is required',
+        pwcheck:'Please enter 1 uppercase , 1 lowercase,1digit'
+      },
+      maxlength: $.validator.format("Please Insert max{0} character"),
+      minlength: $.validator.format("Please enter aleast {0} character"),
+    }
+  })
+  jQuery.validator.addMethod("emailExt", function(value, element, param) {
+    return value.match(/^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$/);
+  }, 'Your E-mail is wrong');
+
+  $.validator.addMethod("pwcheck",
+    function(value, element) {
+      return /^[A-Za-z0-9\d=!\-@._*]+$/.test(value)
+      && /[a-z]/.test(value)//has a lowercase
+      && /[A-Z]/.test(value)//has a uppercase
+      && /|d/.test(value)//has a digit
+    });
+</script>
+
+</html>
