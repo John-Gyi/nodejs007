@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User=require('../model/User');
+var User=require('../.../model/User');
 var Post=require('../model/Post');
 var Admin=require('../model/Admin');
 var mongoose=require('mongoose');
