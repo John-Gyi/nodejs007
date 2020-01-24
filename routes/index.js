@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User=require('../model/User');
-var Post=require('../../model/Post');
+var Post=require('../model/Post');
 var Admin=require('../model/Admin');
 var mongoose=require('mongoose');
 var session=require('express-session');
