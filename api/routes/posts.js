@@ -20,7 +20,7 @@ router.get('/list',checkAuth,function(req,res){
   })
 })
 
-router.post('/add',function(req,res){
+router.post('/add',checkAuth,function(req,res){
   var post=new Post();
   post.title=req.body.title;
   post.content=req.body.content;
