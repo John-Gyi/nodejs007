@@ -7,7 +7,7 @@ var mongoose=require('mongoose');
 var session=require('express-session');
 var apiUserRouter=require('./api/routes/users');
 var apiAdminRouter=require('./api/routes/admin');
-
+var apiPostRouter=require('./api/routes/posts');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -41,6 +41,7 @@ app.use(function (req,res,next){
   next();
 })
 app.use('/', indexRouter);
+app.use('/api/posts',apiPostRouter);
 app.use('/api/users',apiUserRouter);
 app.use('/api',apiAdminRouter);
 app.use(function (req,res,next){
