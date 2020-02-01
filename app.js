@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require('mongoose');
 var session=require('express-session');
+var apiUserRouter=require('./api/routes/users');
+var apiAdminRouter=require('./api/routes/admin');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,6 +41,8 @@ app.use(function (req,res,next){
   next();
 })
 app.use('/', indexRouter);
+app.use('/api/users',apiUserRouter);
+app.use('/api',apiAdminRouter);
 app.use(function (req,res,next){
   if(req.session.user){
     next();
