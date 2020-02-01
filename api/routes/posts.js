@@ -5,7 +5,7 @@ var User=require('../../model/User');
 var Post=require('../../model/Post');
 var checkAuth=require('../middleware/check-auth');
 
-router.get('/list',function(req,res){
+router.get('/list',checkAuth,function(req,res){
   Post.find(function(err,rtn){
     if(err){
       res.status(500).json({
