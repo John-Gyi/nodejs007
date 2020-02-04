@@ -29,10 +29,10 @@ router.get('/posthome',function(req,res,next){
   res.render('posthome',{p:'Hey Guys, Have a nice day'});
 });
 
-router.get('/singup',function(req,res,next){
-  res.render('sing_up');
+router.get('/signup',function(req,res,next){
+  res.render('sign_up');
 });
-router.post('/singup',function(req,res,next){
+router.post('/signup',function(req,res,next){
   var admin=new Admin();
   admin.name=req.body.name;
   admin.email=req.body.email;
@@ -41,15 +41,15 @@ router.post('/singup',function(req,res,next){
   admin.save(function(err,rtn){
     if(err) throw err;
     console.log(rtn);
-    res.redirect('/singin');
+    res.redirect('/signin');
   });
 });
 
-router.get('/singin',function(req,res,next){
-  res.render('sing_in');
+router.get('/signin',function(req,res,next){
+  res.render('sign_in');
 });
 
-router.post('/singin',function(req,res,next){
+router.post('/signin',function(req,res,next){
   Admin.findOne({email:req.body.email},function(err,rtn){
     if(err) throw err;
     console.log(rtn);
@@ -57,12 +57,12 @@ router.post('/singin',function(req,res,next){
       req.session.user={name:rtn.name,email:rtn.email};
       res.redirect('/');
     }else {
-      res.redirect('/singin');
+      res.redirect('/signin');
     }
   });
 
 });
-router.get('/singout',function(req,res,next){
+router.get('/signout',function(req,res,next){
 
   req.session.destroy(function(err){
       if (err) throw err;
